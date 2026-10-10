@@ -227,7 +227,10 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "Fecha_pago":"Fecha de Pago"
       })
-    })
+    });
+
+    const resJson = await res.json()
+    console.log(resJson)
   })
   }
 

@@ -34,7 +34,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTitle = document.getElementById('modalTitle');
   const modalMessage = document.getElementById('modalMessage');
 
-  document.querySelectorAll('.btn-consultar').forEach(button => {
+  const boton_consultar_p = document.getElementById("btn-consultar-p");
+  
+  if(boton_consultar_p){
+    boton_consultar_p.addEventListener("click", (e) => {
+            e.preventDefault();
+        const card = boton_consultar_p.closest('.product-card');
+        if (card) {
+          const productTitle = card.querySelector('.product-title')?.textContent || 'este producto';
+          modalTitle.textContent = `Consulta sobre: ${productTitle}`;
+          modalMessage.textContent = `Gracias por tu interés en ${productTitle}. Un asesor de Chamarket te atenderá a la brevedad.`;
+        }
+        modal.classList.add('active');
+    })
+  }
+
+/*
+  document.getElementById('btn-consultar-p').forEach(button => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
       const card = button.closest('.product-card');
@@ -46,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.add('active');
     });
   });
+  */
 
   if (modalCloseBtn) modalCloseBtn.addEventListener('click', () => modal.classList.remove('active'));
   if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });

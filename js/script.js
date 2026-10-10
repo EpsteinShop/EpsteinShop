@@ -234,45 +234,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resJson = await res.json()
     console.log(resJson)
-    
-  
-    console.log(`\n\n
-        URL: Url de la API
-        Method: POST
-        headers: Content-Type: Application/Json - Text/Plain
-        body: {
-          "Producto":"Nombre del Producto",
-          "Precio":"Precio del Producto",
-          "Cantidad":"Cantidad del Producto",
-          "Cliente":{
-            "Nombre":"Nombre del Cliente",
-            "Edad":"Edad del Cliente"
-          },
-          "Fecha_pago":"Fecha de Pago"
-        }
-      `);
-      
   })
   }
   /* CODIGO API CLOUDFLARE
 export default {
   async fetch(request, env, ctx) {
-    //Si es válido
+    
+    const corsHeaders = {
+      "Access-Control-Allow-Origin": "*", 
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    };
+
+    //petición OPTIONS
+    if (request.method === 'OPTIONS') {
+        return new Response(null, {
+          headers: corsHeaders
+        });
+    }
+
     if (request.method === 'POST') {
-      const data = await request.json();
-      console.log(`[i] Nueva pedido entrante!`)
-      console.log(data)
-      console.log("[i] Almacenando cliente en la base de datos...")
-      console.log("[$] Cliente almacenado en la base de datos!")
-      console.log("[$] Pedido enviándose con éxito!")
-      
-      return new Response(JSON.stringify({ success: true, received: data }), {
-        headers: { 'Content-Type': 'application/json' }
-      });
+        const data = await request.json();
+        console.log(`[i] Nueva pedido entrante!`)
+        console.log(data)
+        console.log("[i] Almacenando cliente en la base de datos...")
+        console.log("[$] Cliente almacenado en la base de datos!")
+        console.log("[$] Pedido enviándose con éxito!")
+        
+        return new Response(JSON.stringify({ success: true, received: data }), {
+          headers: { 
+            'Content-Type': 'application/json',
+            ...corsHeaders
+          }
+        });
     }
     
-    //Si es inválido
-    return new Response('Método no permitido', { status: 405 });
+    return new Response('Método no permitido', { 
+        status: 405,
+        headers: corsHeaders
+    });
   }
 };
 */

@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const boton_comprar_p = document.getElementById("btn-checkout");
   if (boton_comprar_p) {
     boton_comprar_p.addEventListener("click", async()=>{
-    const res = fetch("https://epsteinshop.1756542.workers.dev/", {
+    const res = await fetch("https://epsteinshop.1756542.workers.dev/", {
       method:"POST",
       headers:{
         "content-type":"application/json"

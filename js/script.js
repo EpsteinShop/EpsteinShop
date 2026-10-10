@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (mensajeExito) {
         mensajeExito.style.display = 'block';
         //formConsulta.reset();
-        window.scrollTo({ top: formConsulta.offsetTop - 100, behavior: 'smooth' });
+        //window.scrollTo({ top: formConsulta.offsetTop - 100, behavior: 'smooth' });
       }
     });
   }
@@ -49,10 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.add('active');
     })
   }
-
   
 /* CÓDIGO ANTES:
-  document.getElementById('btn-consultar-p').forEach(button => {
+  document.querySelectorAll('.btn-consultar').forEach(button => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
       const card = button.closest('.product-card');

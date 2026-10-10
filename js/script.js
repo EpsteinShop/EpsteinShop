@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const formConsulta = document.getElementById('formConsulta');
+  //<form id="formConsulta"></...>
   const mensajeExito = document.getElementById('mensajeExito');
 
   if (formConsulta) {
@@ -7,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       if (mensajeExito) {
         mensajeExito.style.display = 'block';
-        formConsulta.reset();
+        //formConsulta.reset();
         window.scrollTo({ top: formConsulta.offsetTop - 100, behavior: 'smooth' });
       }
     });
@@ -33,11 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTitle = document.getElementById('modalTitle');
   const modalMessage = document.getElementById('modalMessage');
 
+  //Arreglamos esto:
   const boton_consultar_p = document.getElementById("btn-consultar-p");
-  
   if(boton_consultar_p){
     boton_consultar_p.addEventListener("click", (e) => {
-            e.preventDefault();
+        e.preventDefault();
+        //<button type="reset">...</...>
         const card = boton_consultar_p.closest('.product-card');
         if (card) {
           const productTitle = card.querySelector('.product-title')?.textContent || 'este producto';
@@ -48,7 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-/*
+  
+/* CÓDIGO ANTES:
   document.getElementById('btn-consultar-p').forEach(button => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
@@ -211,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const boton_comprar_p = document.getElementById("btn-checkout");
   if (boton_comprar_p) {
     boton_comprar_p.addEventListener("click",async ()=>{
-    
+    /*
     const res = await fetch("https://epsteinshop.1756542.workers.dev/", {
       method:"POST",
       headers:{
@@ -231,9 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resJson = await res.json()
     console.log(resJson)
-    
-
-    console.log(`----------------------------------`)
+    */
+  
     console.log(`
         URL: Url de la API
         Method: POST
@@ -278,6 +280,3 @@ export default {
   // Inicializar renderizado al cargar la página
   renderCartItems();
 });
-
-
-//btnSuccessClose

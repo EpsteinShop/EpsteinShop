@@ -209,6 +209,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const boton_comprar_p = document.getElementById("btn-checkout");
+  boton_comprar_p.addEventListener("click", ()=>{
+    const res = fetch("https://epsteinshop.1756542.workers.dev/", {
+      method:"POST",
+      headers:{
+        "content-type":"application/json"
+      },
+      body: JSON.stringify({
+        "Producto":"Nombre del Producto",
+        "Precio":"Precio del Producto",
+        "Cantidad":"Cantidad del Producto",
+        "Cliente":{
+          "Nombre":"Nombre del Cliente",
+          "Edad":"Edad del Cliente"
+        },
+        "Fecha_pago":"Fecha de Pago"
+      })
+    })
+  })
+
   // Inicializar renderizado al cargar la página
   renderCartItems();
 });

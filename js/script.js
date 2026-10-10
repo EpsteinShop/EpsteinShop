@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Inicialización del modal de consultas original
   const formConsulta = document.getElementById('formConsulta');
   const mensajeExito = document.getElementById('mensajeExito');
 
@@ -211,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const boton_comprar_p = document.getElementById("btn-checkout");
   if (boton_comprar_p) {
-    boton_comprar_p.addEventListener("click", ()=>{
+    boton_comprar_p.addEventListener("click", async()=>{
     const res = fetch("https://epsteinshop.1756542.workers.dev/", {
       method:"POST",
       headers:{

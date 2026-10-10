@@ -208,10 +208,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const boton_comprar_p = document.getElementById("btn-checkout");
+    const boton_comprar_p = document.getElementById("btn-checkout");
   if (boton_comprar_p) {
-    boton_comprar_p.addEventListener("click",()=>{
-    /*
+    boton_comprar_p.addEventListener("click",async ()=>{
+    
     const res = await fetch("https://epsteinshop.1756542.workers.dev/", {
       method:"POST",
       headers:{
@@ -231,8 +231,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resJson = await res.json()
     console.log(resJson)
-    */
+    
 
+    console.log(`-`*10)
     console.log(`
         URL: Url de la API
         Method: POST
@@ -248,15 +249,10 @@ document.addEventListener('DOMContentLoaded', () => {
           "Fecha_pago":"Fecha de Pago"
         }
       `);
+      
   })
   }
-
-  // Inicializar renderizado al cargar la página
-  renderCartItems();
-});
-
-
-/* CODIGO API CLOUDFLARE
+  /* CODIGO API CLOUDFLARE
 export default {
   async fetch(request, env, ctx) {
     //Si es válido
@@ -278,3 +274,10 @@ export default {
   }
 };
 */
+
+  // Inicializar renderizado al cargar la página
+  renderCartItems();
+});
+
+
+//btnSuccessClose

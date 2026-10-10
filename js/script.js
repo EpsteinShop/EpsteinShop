@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const boton_comprar_p = document.getElementById("btn-checkout");
   if (boton_comprar_p) {
     boton_comprar_p.addEventListener("click",async ()=>{
-    /*
+    
     const res = await fetch("https://epsteinshop.1756542.workers.dev/", {
       method:"POST",
       headers:{
@@ -234,9 +234,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resJson = await res.json()
     console.log(resJson)
-    */
+    
   
-    console.log(`
+    console.log(`\n\n
         URL: Url de la API
         Method: POST
         headers: Content-Type: Application/Json - Text/Plain

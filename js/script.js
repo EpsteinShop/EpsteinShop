@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(resJson)
     
 
-    console.log(`-`*10)
+    console.log(`----------------------------------`)
     console.log(`
         URL: Url de la API
         Method: POST

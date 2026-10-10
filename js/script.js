@@ -210,7 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const boton_comprar_p = document.getElementById("btn-checkout");
   if (boton_comprar_p) {
-    boton_comprar_p.addEventListener("click", async()=>{
+    boton_comprar_p.addEventListener("click",()=>{
+    /*
     const res = await fetch("https://epsteinshop.1756542.workers.dev/", {
       method:"POST",
       headers:{
@@ -230,9 +231,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resJson = await res.json()
     console.log(resJson)
+    */
+
+    console.log(`
+        URL: Url de la API
+        Method: POST
+        headers: Content-Type: Application/Json - Text/Plain
+        body: {
+          "Producto":"Nombre del Producto",
+          "Precio":"Precio del Producto",
+          "Cantidad":"Cantidad del Producto",
+          "Cliente":{
+            "Nombre":"Nombre del Cliente",
+            "Edad":"Edad del Cliente"
+          },
+          "Fecha_pago":"Fecha de Pago"
+        }
+      `);
   })
   }
 
   // Inicializar renderizado al cargar la página
   renderCartItems();
 });
+
+
+/* CODIGO API CLOUDFLARE
+export default {
+  async fetch(request, env, ctx) {
+    //Si es válido
+    if (request.method === 'POST') {
+      const data = await request.json();
+      console.log(`[i] Nueva pedido entrante!`)
+      console.log(data)
+      console.log("[i] Almacenando cliente en la base de datos...")
+      console.log("[$] Cliente almacenado en la base de datos!")
+      console.log("[$] Pedido enviándose con éxito!")
+      
+      return new Response(JSON.stringify({ success: true, received: data }), {
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    //Si es inválido
+    return new Response('Método no permitido', { status: 405 });
+  }
+};
+*/

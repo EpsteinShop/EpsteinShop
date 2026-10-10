@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta - Chamarket</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      <i class="fa-solid fa-store"></i> Chamarket
+    </a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="alimentos.html">Alimentos</a>
+      <a href="electrodomesticos.html">Electrodomésticos</a>
+      <a href="limpieza.html">Limpieza</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge">
+      <i class="fa-solid fa-headset"></i> Atención al Cliente
+    </div>
+    <h1>Envíanos tu Consulta</h1>
+    <p>Completa el formulario y uno de nuestros asesores te responderá a la brevedad.</p>
+  </section>
+
+  <main class="container">
+    <div class="form-card">
+      <div id="mensajeExito" class="alert-success">
+        <i class="fa-solid fa-circle-check"></i> ¡Consulta enviada con éxito! Nos pondremos en contacto contigo pronto.
+      </div>
+
+      <form id="formConsulta">
+        <div class="form-group">
+          <label for="correo"><i class="fa-solid fa-envelope"></i> Correo Electrónico</label>
+          <input type="email" id="correo" class="form-control" placeholder="ejemplo@correo.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="motivo"><i class="fa-solid fa-list-check"></i> Motivo de Consulta</label>
+          <select id="motivo" class="form-control" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="disponibilidad">Disponibilidad de producto</option>
+            <option value="precios">Precios y compras al por mayor</option>
+            <option value="envios">Información sobre envíos</option>
+            <option value="garantia">Garantía o soporte</option>
+            <option value="otro">Otro motivo</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje"><i class="fa-solid fa-comment"></i> Detalle de la Consulta</label>
+          <textarea id="mensaje" class="form-control" placeholder="Escribe aquí los detalles de tu consulta..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-consultar btn-lg" style="width: 100%; justify-content: center;">
+          <i class="fa-solid fa-paper-plane"></i> Enviar Consulta
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="logo">
+      <i class="fa-solid fa-store"></i> Chamarket
+    </div>
+    <div class="social-links">
+      <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+    <p>&copy; 2026 Chamarket. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

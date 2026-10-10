@@ -210,7 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const boton_comprar_p = document.getElementById("btn-checkout");
-  boton_comprar_p.addEventListener("click", ()=>{
+  if (boton_comprar_p) {
+    boton_comprar_p.addEventListener("click", ()=>{
     const res = fetch("https://epsteinshop.1756542.workers.dev/", {
       method:"POST",
       headers:{
@@ -228,6 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     })
   })
+  }
 
   // Inicializar renderizado al cargar la página
   renderCartItems();

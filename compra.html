@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar Compra - Chamarket</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      <i class="fa-solid fa-store"></i> Chamarket
+    </a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="alimentos.html">Alimentos</a>
+      <a href="electrodomesticos.html">Electrodomésticos</a>
+      <a href="limpieza.html">Limpieza</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge">
+      <i class="fa-solid fa-credit-card"></i> Pasarela de Pago
+    </div>
+    <h1>Finalizar Compra</h1>
+    <p>Ingresa tus datos personales y de pago para completar tu pedido.</p>
+  </section>
+
+  <main class="container">
+    <div class="form-card" style="max-width: 650px;">
+      <form id="formCheckout">
+        
+        <div class="form-group">
+          <label for="nombreCompleto"><i class="fa-solid fa-user"></i> Nombre Completo</label>
+          <input type="text" id="nombreCompleto" class="form-control" placeholder="Ej. Juan Pérez" required>
+        </div>
+
+        <div class="form-group">
+          <label for="direccionEnvio"><i class="fa-solid fa-location-dot"></i> Dirección de Envío</label>
+          <input type="text" id="direccionEnvio" class="form-control" placeholder="Ej. Av. Larco 123, Miraflores" required>
+        </div>
+
+        <div class="form-group">
+          <label for="emailCheckout"><i class="fa-solid fa-envelope"></i> Correo Electrónico</label>
+          <input type="email" id="emailCheckout" class="form-control" placeholder="correo@ejemplo.com" required>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 25px 0;">
+
+        <div class="form-group">
+          <label for="numeroTarjeta"><i class="fa-solid fa-credit-card"></i> Número de Tarjeta</label>
+          <input type="text" id="numeroTarjeta" class="form-control" placeholder="4532 •••• •••• 8900" maxlength="19" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="form-group">
+            <label for="vencimiento"><i class="fa-solid fa-calendar"></i> Expiración (MM/AA)</label>
+            <input type="text" id="vencimiento" class="form-control" placeholder="MM/AA" maxlength="5" required>
+          </div>
+          <div class="form-group">
+            <label for="cvv"><i class="fa-solid fa-lock"></i> CVV</label>
+            <input type="password" id="cvv" class="form-control" placeholder="123" maxlength="4" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-checkout" style="width: 100%; margin-top: 10px; padding: 14px; font-size: 1.05rem;">
+          <i class="fa-solid fa-check-to-slot"></i> Finalizar Compra
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Modal de Compra Exitosa -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-box">
+      <i class="fa-solid fa-circle-check success-icon" style="font-size: 3.5rem; color: #10b981;"></i>
+      <h3>¡Compra Realizada con Éxito!</h3>
+      <p>Tus datos han sido verificados correctamente. Hemos enviado el comprobante a tu correo electrónico y tu pedido está en camino.</p>
+      <button class="modal-close" id="btnSuccessClose">Aceptar y Volver al Inicio</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="logo">
+      <i class="fa-solid fa-store"></i> Chamarket
+    </div>
+    <div class="social-links">
+      <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+    <p>&copy; 2026 Chamarket. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Lógica de validación y API de pago
+    document.getElementById('formCheckout').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombreCompleto').value.trim();
+      const direccion = document.getElementById('direccionEnvio').value.trim();
+      const correo = document.getElementById('emailCheckout').value.trim();
+      const tarjeta = document.getElementById('numeroTarjeta').value.trim();
+      const cvv = document.getElementById('cvv').value.trim();
+
+      // =========================================================================
+      // ESPACIO PARA API O JAVASCRIPT QUE VERIFIQUE SI LOS DATOS SON VERÍDICOS
+      // =========================================================================
+      /* 
+        Aquí puedes integrar una llamada fetch() a tu API de pasarela de pagos 
+        (ej. Stripe, Culqi, MercadoPago) o una validación personalizada:
+        
+        Ejemplo con API:
+        fetch('https://tu-api-pagos.com/verificar', {
+          method: 'POST',
+          body: JSON.stringify({ tarjeta, cvv })
+        }).then(res => res.json()).then(data => { ... })
+      */
+
+      // Validación básica simulada de veracidad de datos
+      const tarjetaValida = tarjeta.length >= 15; // Validación simple de longitud de tarjeta
+      const cvvValido = cvv.length >= 3;
+
+      if (!tarjetaValida || !cvvValido) {
+        alert('Por favor, ingresa datos de tarjeta válidos.');
+        return;
+      }
+
+      // Si todos los datos son verídicos, mostramos la ventana modal con el check de éxito
+      const successModal = document.getElementById('successModal');
+      successModal.classList.add('active');
+
+      // Limpiamos el carrito guardado
+      localStorage.removeItem('chamarket_cart');
+    });
+
+    document.getElementById('btnSuccessClose').addEventListener('click', function() {
+      window.location.href = 'index.html';
+    });
+  </script>
+
+</body>
+</html>
